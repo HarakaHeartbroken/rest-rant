@@ -2,17 +2,19 @@ const router = require('express').Router()
 
 router.get('/', (req, res) => {
     let places = [{
-        name: 'H-Thai-ML',
+        name: 'Mike Magician',
         city: 'Seattle',
         state: 'WA',
-        cuisines: 'Thai, Pan-Asian',
-        pic: 'http://placekitten.com/250/250'
+        techniques: 'Expelliarmus, Faux-Latin',
+        pic: '/images/mikeMagician.jpg',
+        attribute: 'Photo by <a href="https://unsplash.com/@kouchpeydeh?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Khashayar Kouchpeydeh</a> on <a href="https://unsplash.com/s/photos/magician?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
       }, {
-        name: 'Coding Cat Cafe',
+        name: 'Sally Shaman',
         city: 'Phoenix',
         state: 'AZ',
-        cuisines: 'Coffee, Bakery',
-        pic: 'http://placekitten.com/250/250'
+        techniques: 'Coffee, Blood Sacrifices',
+        pic: '/images/sallyShaman.jpg',
+        attribute: 'Photo by <a href="https://unsplash.com/@vechorko?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dmitry Vechorko</a> on <a href="https://unsplash.com/s/photos/magician?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
       }]
     res.render('places/index', {places})
 })

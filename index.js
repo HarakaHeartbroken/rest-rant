@@ -25,5 +25,3 @@ app.get('*', (req, res) => {
 app.listen(process.env.PORT, function (){
     console.log("I LIVE AGAIN!")
 })
-
-//Adjusting code for test
