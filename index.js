@@ -1,24 +1,27 @@
+// Modules and Globals
 require('dotenv').config()
 const express = require('express')
 const app = express()
 
+// Express Settings
+app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
+app.use(express.static('public'))
 
-
+// Controllers and Routes
 app.use('/places', require('./controllers/places'))
 
 app.get('/', (req, res) => {
-    console.log("Test")
     res.render('home')
 })
 
 app.get('*', (req, res) => {
-    res.status(404).render('error404')
+    res.render('error404')
 })
 
 
-// console.log("BEWARE, AM SINNISTAR")
+// Listen For Connections
 app.listen(process.env.PORT, function (){
     console.log("I LIVE AGAIN!")
 })
