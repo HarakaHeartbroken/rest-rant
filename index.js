@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-    res.status(404).send('<h1>RUN, COWARD! I HUNGER!</h1>')
+    res.status(404).render('error404')
 })
 
 
