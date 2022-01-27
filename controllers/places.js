@@ -1,5 +1,9 @@
 const router = require('express').Router()
 
+router.get('/new', (req, res) => {
+  res.render('places/new')
+})
+
 router.get('/', (req, res) => {
     let places = [{
         name: 'Mike Magician',
@@ -16,7 +20,8 @@ router.get('/', (req, res) => {
         pic: '/images/sallyShaman.jpg',
         attribute: 'Photo by <a href="https://unsplash.com/@vechorko?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dmitry Vechorko</a> on <a href="https://unsplash.com/s/photos/magician?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
       }]
-    res.render('places/index', {places})
+    
+      res.render('places/index', {places})
 })
 
 
