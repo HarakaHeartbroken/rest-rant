@@ -1,28 +1,31 @@
 const router = require('express').Router()
+const places = require('../models/places.js')
+
+router.get('/', (req, res) => {
+  res.render('places/index', {places})
+})
 
 router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
-router.get('/', (req, res) => {
-    let places = [{
-        name: 'Mike Magician',
-        city: 'Seattle',
-        state: 'WA',
-        techniques: 'Expelliarmus, Faux-Latin',
-        pic: '/images/mikeMagician.jpg',
-        attribute: 'Photo by <a href="https://unsplash.com/@kouchpeydeh?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Khashayar Kouchpeydeh</a> on <a href="https://unsplash.com/s/photos/magician?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
-      }, {
-        name: 'Sally Shaman',
-        city: 'Phoenix',
-        state: 'AZ',
-        techniques: 'Coffee, Blood Sacrifices',
-        pic: '/images/sallyShaman.jpg',
-        attribute: 'Photo by <a href="https://unsplash.com/@vechorko?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dmitry Vechorko</a> on <a href="https://unsplash.com/s/photos/magician?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
-      }]
-    
-      res.render('places/index', {places})
+router.post('/', (req, res) => {
+  console.log(req.body)
+  if (!req.body.pic) {
+    // Default image if one is not provided
+    req.body.pic = 'http://placekitten.com/400/400'
+  }
+  if (!req.body.city) {
+    req.body.city = 'Anytown'
+  }
+  if (!req.body.state) {
+    req.body.state = 'USA'
+  }
+  places.push(req.body)
+  res.redirect('/places')
 })
+
+
 
 
 module.exports = router
