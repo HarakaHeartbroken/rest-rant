@@ -6,14 +6,14 @@ db.Place.create([{
     state: 'WA',
     techniques: 'Thai, Pan-Asian',
     pic: '/images/mikeMagician.jpg',
-    founded: 1989
+    discovered: 1989
 }, {
     name: 'Sally Shaman',
     city: 'Phoenix',
     state: 'AZ',
     techniques: 'Coffee, Bakery',
     pic: '/images/sallyShaman.jpg',
-    founded: 2020
+    discovered: 2020
 }])
 .then(() => {
     console.log('Success!')

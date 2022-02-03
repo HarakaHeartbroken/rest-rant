@@ -29,7 +29,12 @@ function new_form () {
                     </div>
                     <div className="form-group">
                         <label for="discovered">Discovered Year</label>
-                        <input className="form-control" id="discovered" name="discovered" />
+                        <input 
+                            className="form-control" 
+                            id="discovered" 
+                            name="discovered"
+                            type="number"
+                            value={new Date().getFullYear()} />
                     </div>
                         <input className="btn btn-primary" type="submit" value="Add Caster" />
                         </form>
